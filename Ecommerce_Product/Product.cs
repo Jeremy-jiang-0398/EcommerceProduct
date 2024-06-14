@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ecommerce_Product
+{
+    public class Product
+    {
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+
+        public decimal Price { get; set; }
+
+        public int Stock { get; set; }
+
+        public Product(int productId, string productName, decimal price, int stock)
+        {
+            ProductID = productId;
+            ProductName = productName;
+            Price = price;
+            Stock = stock;
+        }
+
+        public void IncreaseStock(int value)
+        {
+            Stock += (int)value;
+        }
+
+        public void DecreaseStock(int value)
+        {
+            if (Stock >= value)
+            {
+                Stock -= (int)value;
+            }
+            else
+                Console.WriteLine("Insufficient funds!");
+        }
+    }
+}
